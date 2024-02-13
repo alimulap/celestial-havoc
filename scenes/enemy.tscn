@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cumucthrvbec7"]
+
+[ext_resource type="Texture2D" uid="uid://d2mbwfa5iuqqd" path="res://aseets/enemy1.png" id="1_apyq6"]
+[ext_resource type="PackedScene" uid="uid://itywmi31j8rl" path="res://scenes/health_bar.tscn" id="2_t7pew"]
+
+[node name="Enemy" type="Enemy"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+mass = 10.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PackedVector2Array(0, -48, 36, 24, -36, 24)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(0, -12)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("1_apyq6")
+
+[node name="HealthBar" parent="." instance=ExtResource("2_t7pew")]
+
+[connection signal="body_entered" from="RigidBody2D" to="." method="body_entered"]

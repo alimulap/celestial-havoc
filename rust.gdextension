@@ -1,0 +1,15 @@
+[configuration]
+entry_symbol = "gdext_rust_init"
+compatibility_minimum = 4.1
+
+[libraries]
+linux.debug.x86_64 = "res://rust/target/debug/libcelestial_havoc.so"
+linux.release.x86_64 = "res://rust/target/release/libcelestial_havoc.so"
+windows.debug.x86_64 = "res://rust/target/debug/celestial_havoc.dll"
+windows.release.x86_64 = "res://rust/target/release/celestial_havoc.dll"
+macos.debug = "res://rust/target/debug/libcelestial_havoc.dylib"
+macos.release = "res://rust/target/release/libcelestial_havoc.dylib"
+macos.debug.arm64 = "res://rust/target/debug/libcelestial_havoc.dylib"
+macos.release.arm64 = "res://rust/target/release/libcelestial_havoc.dylib"
+web.debug.wasm32 = "res://rust/target/wasm32-unknown-emscripten/debug/celestial_havoc.wasm"
+web.release.wasm32 = "res://rust/target/wasm32-unknown-emscripten/release/celestial_havoc.wasm"

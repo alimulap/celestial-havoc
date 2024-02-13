@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://itywmi31j8rl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yv0u2"]
+bg_color = Color(0.6, 0.6, 0.6, 0.384314)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wre0b"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+
+[sub_resource type="Theme" id="Theme_8ouah"]
+/colors/red = Color(1, 0, 0, 1)
+ProgressBar/styles/background = SubResource("StyleBoxFlat_yv0u2")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_wre0b")
+
+[node name="HealthBar" type="ProgressBar"]
+offset_left = -36.0
+offset_top = -64.0
+offset_right = 36.0
+offset_bottom = -60.0
+theme = SubResource("Theme_8ouah")
+value = 68.0
+show_percentage = false

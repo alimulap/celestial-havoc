@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://b04lv0tdcyhbt"]
+
+[ext_resource type="Texture2D" uid="uid://ciexlglwxmfk1" path="res://aseets/player1.png" id="1_fj0to"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_caqg2"]
+bg_color = Color(0.6, 0.6, 0.6, 0.384314)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v66st"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+
+[sub_resource type="Theme" id="Theme_rhd4h"]
+/colors/red = Color(1, 0, 0, 1)
+ProgressBar/styles/background = SubResource("StyleBoxFlat_caqg2")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_v66st")
+
+[node name="Player" type="Player"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PackedVector2Array(0, -48, 36, 24, -36, 24)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(0, -12)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("1_fj0to")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -36.0
+offset_top = -64.0
+offset_right = 36.0
+offset_bottom = -60.0
+theme = SubResource("Theme_rhd4h")
+value = 68.0
+show_percentage = false
