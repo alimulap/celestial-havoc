@@ -77,7 +77,7 @@ impl INode2D for Enemy {
         self.hpbar.as_mut().unwrap().set_position(position + Self::HPBAR_OFFSET);
         self.counter += 1;
         if self.counter % 60 == 0 {
-            godot_print!("Enemy position: {:?}", position);
+            //godot_print!("Enemy position: {:?}", position);
         }
     }
 }

@@ -9,6 +9,7 @@
 [node name="Player" parent="." instance=ExtResource("1_00eoy")]
 
 [node name="Enemy" parent="." instance=ExtResource("2_fxogf")]
+position = Vector2(200, 200)
 
 [node name="Camera" type="CustomCamera" parent="."]
 
