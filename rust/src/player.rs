@@ -124,25 +124,25 @@ impl INode2D for Player {
             Self::shoot(rb, &velocity, angle, &self.bullet_scene);
         }
 
-        self.counter += 1;
-        if self.counter % 60 == 0 {
-            godot_print!("Angle: {}", angle);
-            let mass = rb.get_mass();
-            match self.debug_node.as_mut() {
-                Some(debug_node) => {
-                    debug_node.set_text(
-                        format!(
-                            "Force: {:?}\nTorque: {}\nAngle: {}\nVelocity: {:?}\nMass: {}",
-                            force, torque, angle, velocity, mass
-                        )
-                        .into(),
-                    );
-                }
-                None => {
-                    godot_print!("No DebugLabel found for Player");
-                }
-            }
-        }
+        //self.counter += 1;
+        //if self.counter % 60 == 0 {
+        //    godot_print!("Angle: {}", angle);
+        //    let mass = rb.get_mass();
+        //    match self.debug_node.as_mut() {
+        //        Some(debug_node) => {
+        //            debug_node.set_text(
+        //                format!(
+        //                    "Force: {:?}\nTorque: {}\nAngle: {}\nVelocity: {:?}\nMass: {}",
+        //                    force, torque, angle, velocity, mass
+        //                )
+        //                .into(),
+        //            );
+        //        }
+        //        None => {
+        //            godot_print!("No DebugLabel found for Player");
+        //        }
+        //    }
+        //}
     }
 }
 

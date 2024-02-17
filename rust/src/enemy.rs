@@ -10,6 +10,7 @@ pub struct Enemy {
     hpbar: Option<Gd<ProgressBar>>,
     health_points: u64,
     max_health_points: u64,
+    counter: u64,
 }
 
 impl Enemy {
@@ -20,6 +21,8 @@ impl Enemy {
         self.hpbar.as_mut().unwrap().set_value(self.health_points as f64);
 
         if self.health_points <= 0 {
+            let id = self.base().instance_id().to_variant();
+            self.base_mut().emit_signal("queue_despawn".into(), &[id]);
             self.base_mut().queue_free();
         }
     }
@@ -27,6 +30,9 @@ impl Enemy {
 
 #[godot_api]
 impl Enemy {
+    #[signal]
+    fn queue_despawn();
+
     #[func]
     pub fn body_entered(&mut self, mut body: Gd<Node>) {
         if body.is_in_group("bullets".into()) {
@@ -45,6 +51,7 @@ impl INode2D for Enemy {
             hpbar: None,
             health_points: 100,
             max_health_points: 100,
+            counter: 0,
         }
     } 
 
@@ -68,5 +75,9 @@ impl INode2D for Enemy {
         self.rb.set_linear_velocity(velocity);
         let position = self.rb.get_position();
         self.hpbar.as_mut().unwrap().set_position(position + Self::HPBAR_OFFSET);
+        self.counter += 1;
+        if self.counter % 60 == 0 {
+            godot_print!("Enemy position: {:?}", position);
+        }
     }
 }

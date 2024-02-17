@@ -4,13 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://cumucthrvbec7" path="res://scenes/enemy.tscn" id="2_fxogf"]
 [ext_resource type="Texture2D" uid="uid://d0s3vrib11hfs" path="res://aseets/starry-space-seamless-pattern-sky-stars-in-galaxy-vector.jpg" id="3_ir75w"]
 
-[node name="root" type="Node2D"]
+[node name="root" type="TestLevel"]
 
 [node name="Player" parent="." instance=ExtResource("1_00eoy")]
-position = Vector2(278, 207)
 
 [node name="Enemy" parent="." instance=ExtResource("2_fxogf")]
-position = Vector2(695, 345)
 
 [node name="Camera" type="CustomCamera" parent="."]
 
@@ -67,3 +65,7 @@ centered = false
 region_filter_clip_enabled = true
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 9.0
+autostart = true

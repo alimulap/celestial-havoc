@@ -5,6 +5,7 @@ mod enemy;
 mod bullet;
 mod camera;
 mod utils;
+mod test_level;
 
 struct CelestialHavoc;
 
